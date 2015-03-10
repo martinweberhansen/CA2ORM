@@ -5,8 +5,8 @@ import ca2orm.Info.InfoEntity;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 
 
@@ -18,13 +18,15 @@ import javax.persistence.ManyToMany;
 @Entity
 public class Person extends InfoEntity implements Serializable {
     
-    @Id
-    private Integer Id;
+    
+    @Column(name = "firstname")
     private String firstName;
+    @Column(name = "lastname")
     private String lastName;
     
     @ManyToMany
-    List<Hobby> hobbysList = new ArrayList<>();
+    private List<Hobby> hobbysList; // = new ArrayList<>();
+    
     
     
     public Person(){}

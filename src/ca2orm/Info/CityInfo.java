@@ -4,14 +4,14 @@ package ca2orm.Info;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
-
-
 /**
- *
  * @author Martin Weber
  */
 
@@ -19,8 +19,12 @@ import javax.persistence.OneToMany;
 public class CityInfo implements Serializable {
     
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
     private Integer Id;
+    @Column(name = "zipcode")
     private int zipCode;
+    @Column(name = "city")
     private String city;
     
     
@@ -49,7 +53,5 @@ public class CityInfo implements Serializable {
     public void setCity(String city) {
         this.city = city;
     }
-    
-    
     
 }

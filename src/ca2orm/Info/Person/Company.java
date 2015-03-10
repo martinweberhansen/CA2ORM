@@ -3,9 +3,8 @@ package ca2orm.Info.Person;
 
 import ca2orm.Info.InfoEntity;
 import java.io.Serializable;
+import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Id;
-
 
 /**
  * @author Martin Weber
@@ -14,12 +13,15 @@ import javax.persistence.Id;
 @Entity
 public class Company extends InfoEntity implements Serializable{
     
-    @Id
-    private Integer Id;
+    @Column(name = "name")
     private String name;
+    @Column(name = "description")
     private String description;
+    @Column(name = "cvr")
     private int cvr;
+    @Column(name = "numemployees")
     private int NumEmployees;
+    @Column(name = "marketvalue")
     private int marketValue;
 
     
