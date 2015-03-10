@@ -20,7 +20,7 @@ public class CA2ORM {
 
     public static void main(String[] args) {
         
-         EntityManagerFactory emf;
+            EntityManagerFactory emf;
             emf = Persistence.createEntityManagerFactory("CA2ORMPU");
             EntityManager em = emf.createEntityManager();
             
