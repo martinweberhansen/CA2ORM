@@ -24,12 +24,12 @@ public interface ORMInterface {
     
     public ArrayList<Person> getAllPersonsViaHobby(String Hobby);
         
-    public void getAllPersonsViaCity(int zip);
+    public ArrayList<Person> getAllPersonsViaCity(int zip);
     
     public void getNumberOfPeople(String hobby);
     
-    public void getListOfZipCodes();
+    public ArrayList<Integer> getListOfZipCodes();
     
-    public void getCompanyAmountOfWorkers(int numberOfWorkers);
+    public ArrayList<Company> getCompanyAmountOfWorkers(int numberOfWorkers);
 
 }
