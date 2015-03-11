@@ -5,7 +5,10 @@
  */
 package ca2orm.Interface;
 
+import ca2orm.Info.Person.Company;
+import ca2orm.Info.Person.Hobby;
 import ca2orm.Info.Person.Person;
+import java.util.ArrayList;
 
 /**
  * @author Martin Weber
@@ -15,11 +18,11 @@ public interface ORMInterface {
         
     public Person getPerson(int id);
             
-    public void getInfomationViaPhone(int phone);
+    public Company getInfomationViaPhone(int phone);
     
-    public void getInfomationViaCvr(int cvr);
+    public Company getInfomationViaCvr(int cvr);
     
-    public void getAllPersonsViaHobby(String Hobby);
+    public ArrayList<Person> getAllPersonsViaHobby(String Hobby);
         
     public void getAllPersonsViaCity(int zip);
     
