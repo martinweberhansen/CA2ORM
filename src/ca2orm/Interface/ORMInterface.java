@@ -5,13 +5,15 @@
  */
 package ca2orm.Interface;
 
+import ca2orm.Info.Person.Person;
+
 /**
  * @author Martin Weber
  */
 public interface ORMInterface {
  
         
-    public void getPerson();
+    public Person getPerson(int id);
             
     public void getInfomationViaPhone(int phone);
     

@@ -19,11 +19,11 @@ import javax.persistence.OneToMany;
 public class CityInfo implements Serializable {
     
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
-    private Integer Id;
-    @Column(name = "zipcode")
-    private int zipCode;
+//    @GeneratedValue(strategy = GenerationType.AUTO)
+//    @Column(name = "id")
+//    private Integer Id;
+    @Column(name = "zip")
+    private String zipCode;
     @Column(name = "city")
     private String city;
     
@@ -33,16 +33,16 @@ public class CityInfo implements Serializable {
     
     public CityInfo(){}
     
-    public CityInfo(int zipCode, String city) {
+    public CityInfo(String zipCode, String city) {
         this.zipCode = zipCode;
         this.city = city;
     }
 
-    public int getZipCode() {
+    public String getZipCode() {
         return zipCode;
     }
 
-    public void setZipCode(int zipCode) {
+    public void setZipCode(String zipCode) {
         this.zipCode = zipCode;
     }
 

@@ -8,10 +8,14 @@ import ca2orm.Info.Person.Company;
 import ca2orm.Info.Person.Hobby;
 import ca2orm.Info.Person.Person;
 import ca2orm.Info.Phone;
+import ca2orm.facade.facade;
+import java.io.InputStream;
 import java.util.Date;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
+
 
 /**
  * @author Martin Weber
@@ -19,32 +23,20 @@ import javax.persistence.Persistence;
 public class CA2ORM {
 
     public static void main(String[] args) {
+            //Persistence.generateSchema("CA2ORMPU", null);
+//            EntityManagerFactory emf;
+//            emf = Persistence.createEntityManagerFactory("CA2ORMPU");
+//            EntityManager em = emf.createEntityManager();
+//            
+//            em.getTransaction().begin();
+//            
+////            InfoEntity p1 = new Person("testPersonFirstName","testPersonLastName");            
+////            em.persist(p1);
+//            em.getTransaction().commit();
+//            em.close();
         
-            EntityManagerFactory emf;
-            emf = Persistence.createEntityManagerFactory("CA2ORMPU");
-            EntityManager em = emf.createEntityManager();
-            
-            em.getTransaction().begin();
-            
-   //         Person testPerson = new Person("Martin","Weber");
-//            Company testCompany = new Company();
-//            Hobby testHobby = new Hobby();
-            InfoEntity testInfoEntity = new InfoEntity();
-//            Phone testPhone = new Phone();
-//            Address testAddress = new Address();
-//            CityInfo testCityInfo = new CityInfo();
-            
-           
-//            em.persist(testCompany);
-//            em.persist(testHobby);
-            em.persist(testInfoEntity);
-//            em.persist(testPhone);
-//            em.persist(testAddress);
-//            em.persist(testCityInfo);
-       //     em.persist(testPerson);
-            
-            em.getTransaction().commit();
-            em.close();
+        facade f = new facade();
+        System.out.println(f.getPerson(1).toString());
+        
     }
-    
 }

@@ -41,8 +41,7 @@ public class InfoEntity implements Serializable{  // spørg lige til serializabl
     
     public InfoEntity(){}
     
-    public InfoEntity(int id, String Email) {
-        this.Id = id;
+    public InfoEntity( String Email) {
         this.email = Email;
     }
 
