@@ -16,7 +16,7 @@ public class facade implements ORMInterface{
     Connection con;
     private String URL = "jdbc:oracle:thin:@datdb.cphbusiness.dk:1521:dat";
     private String userID = "cphmh350";
-    private String password = "";
+    private String password = "cphmh350";
     
     @Override
     public Person getPerson(int id)
