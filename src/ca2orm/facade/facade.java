@@ -7,6 +7,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 /**
  * @author Martin Weber
@@ -21,9 +22,9 @@ public class facade implements ORMInterface{
     @Override
     public Person getPerson(int id)
     {
-        String sqlString = "select * from person where ID = "+id;
+        String sqlString = "select * from person where ID = " + id;
         PreparedStatement ps = null;
-        Person p=null;
+        Person p = null;
         try {
             con = DriverManager.getConnection(URL, userID, password);
             ps = con.prepareStatement(sqlString);
@@ -35,9 +36,25 @@ public class facade implements ORMInterface{
                 String lName = rs.getString("lastname");
                 p = new Person(fName,lName);
             }
-            
         } catch (Exception e) {
-            System.out.println("Excption in get Person!");
+            System.out.println("Exception in getPerson!");
+        } finally {
+            try {
+                if (ps != null) {
+                    ps.close();
+                }
+            } catch (SQLException e) {
+                System.out.println("SQLException in getPerson:");
+                System.out.println(e.getMessage());
+            }
+            try {
+                if (con != null){
+                    con.close();
+                }
+            } catch (SQLException se){
+                System.out.println("SQLException in getPerson:");
+                System.out.println(se.getMessage());
+            }
         }
         return p;
     }
