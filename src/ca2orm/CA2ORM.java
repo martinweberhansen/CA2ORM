@@ -16,10 +16,6 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 
-
-/**
- * @author Martin Weber
- */
 public class CA2ORM {
 
     public static void main(String[] args) {
@@ -37,6 +33,5 @@ public class CA2ORM {
         
         facade f = new facade();
         System.out.println(f.getPerson(1).toString());
-        
     }
 }

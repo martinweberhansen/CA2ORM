@@ -11,13 +11,8 @@ import javax.persistence.ManyToMany;
 
 
 
-/**
- * @author Martin Weber
- */
-
 @Entity
 public class Person extends InfoEntity implements Serializable {
-    
     
     @Column(name = "firstname")
     private String firstName;
@@ -27,31 +22,26 @@ public class Person extends InfoEntity implements Serializable {
     @ManyToMany
     private List<Hobby> hobbysList; // = new ArrayList<>();
     
-    
-    
     public Person(){}
     
     public Person(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
     }
-
+    
     public String getFirstName() {
         return firstName;
     }
-
+    
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
-
+    
     public String getLastName() {
         return lastName;
     }
-
+    
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
-    
-    
-    
 }
