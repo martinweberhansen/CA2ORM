@@ -58,28 +58,28 @@ public class Mapper {
     
     public Company getInfomationViaPhone(int phone)
     {
-        String sqlString1 = "select infoentity_id from phone where number = " + phone;
+        String sqlString1 = "select * from infoentity_phone where phones_id = " + phone;
         PreparedStatement ps = null;
         Company c = null;
         try {
             con = DriverManager.getConnection(URL, userID, password);
             ps = con.prepareStatement(sqlString1);
-            ResultSet rs = ps.executeQuery();
+            ResultSet rs1 = ps.executeQuery();
             
-            if (rs.next())
+            if (rs1.next())
             {
-                int infoEntityID = rs.getInt("infoentity_id");
+                int infoEntityID = rs1.getInt("infoentity_id");
                 String sqlString2 = "select * from company where id = " + infoEntityID;
                 ps = con.prepareStatement(sqlString2);
                 ResultSet rs2 = ps.executeQuery();
                 
-                if (rs.next())
+                if (rs2.next())
                 {
-                    String name = rs.getString("name");
-                    String description = rs.getString("description");
-                    int cvr = rs.getInt("cvr");
-                    int numEmployees = rs.getInt("NumEmployees");
-                    int marketValue = rs.getInt("marketValue");
+                    String name = rs2.getString("name");
+                    String description = rs2.getString("description");
+                    int cvr = rs2.getInt("cvr");
+                    int numEmployees = rs2.getInt("NumEmployees");
+                    int marketValue = rs2.getInt("marketValue");
                     c = new Company(name, description, cvr, numEmployees, marketValue);
                 }
             }
@@ -108,7 +108,7 @@ public class Mapper {
     
     public Company getInfomationViaCvr(int cvr)
     {
-        String sqlString = "select * from Company where cvr = " + cvr;
+        String sqlString = "select * from company where cvr = " + cvr;
         PreparedStatement ps = null;
         Company c = null;
         try {
@@ -121,7 +121,7 @@ public class Mapper {
                 String retName = rs.getString("name");
                 String retDescription = rs.getString("description");
                 int retCvr = rs.getInt("cvr");
-                int retNumEmployees = rs.getInt("NumEmployees");
+                int retNumEmployees = rs.getInt("numemployees");
                 int retMarketValue = rs.getInt("marketValue");
                 c = new Company(retName, retDescription, retCvr, retNumEmployees, retMarketValue);
             }
@@ -150,7 +150,7 @@ public class Mapper {
     
     public ArrayList<Person> getAllPersonsViaHobby(String Hobby)
     {
-        String sqlString1 = "select * from Hobby where name = '" + Hobby + "'";
+        String sqlString1 = "select * from person where Hobby.name = '" + Hobby + "'";
         PreparedStatement ps = null;
         ArrayList<Person> retList = new ArrayList<>();
         Person p = null;

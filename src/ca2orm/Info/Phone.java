@@ -9,6 +9,7 @@ import javax.persistence.Id;
 public class Phone implements Serializable {
     
     @Id
+    private int infoentity_id;
     private int number;
     private String description;
     
