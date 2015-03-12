@@ -199,7 +199,7 @@ public class Mapper {
     
     public ArrayList<Person> getAllPersonsViaCity(String zip)
     {
-        String sqlString1 = "select street from address where cityinfo_id = '" + zip + "'"; //   cityinfo_id   ?????!?????!?????!?????
+        String sqlString1 = "select street from address where cityinfo = '" + zip + "'";
         PreparedStatement ps = null;
         ArrayList<Person> pList = new ArrayList<>();
         Person p = null;

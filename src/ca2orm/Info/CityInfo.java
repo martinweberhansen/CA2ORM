@@ -9,10 +9,6 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
-/**
- * @author Martin Weber
- */
-
 @Entity
 public class CityInfo implements Serializable {
     
@@ -25,7 +21,6 @@ public class CityInfo implements Serializable {
     @Column(name = "city")
     private String city;
     
-    
     @OneToMany(mappedBy = "cityInfo")
     List<Address> addresses = new ArrayList<>();
     
@@ -35,21 +30,20 @@ public class CityInfo implements Serializable {
         this.zipCode = zipCode;
         this.city = city;
     }
-
+    
     public String getZipCode() {
         return zipCode;
     }
-
+    
     public void setZipCode(String zipCode) {
         this.zipCode = zipCode;
     }
-
+    
     public String getCity() {
         return city;
     }
-
+    
     public void setCity(String city) {
         this.city = city;
     }
-    
 }

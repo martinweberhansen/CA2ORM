@@ -1,7 +1,6 @@
 
 package ca2orm.Info;
 
-
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,10 +14,6 @@ import javax.persistence.InheritanceType;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
-
-/**
- * @author Martin Weber
- */
 @Entity 
 @Inheritance(strategy =InheritanceType.JOINED)
 public class InfoEntity implements Serializable{  // spørg lige til serializable ? ? 
@@ -31,35 +26,32 @@ public class InfoEntity implements Serializable{  // spørg lige til serializabl
     private Integer Id;
     @Column(name = "email")
     private String email;
-  
+    
     @OneToMany
-    List<Phone> phones = new ArrayList<>();  //er det uni eller bi?? p.t. sat til uni
+    List<Phone> phones = new ArrayList<>();
     
     @ManyToOne
     private Address address;
-    
     
     public InfoEntity(){}
     
     public InfoEntity( String Email) {
         this.email = Email;
     }
-
+    
     public int getId() {
         return Id;
     }
-
+    
     public void setId(int id) {
         this.Id = id;
     }
-
+    
     public String getEmail() {
         return email;
     }
-
+    
     public void setEmail(String email) {
         this.email = email;
     }
-    
-    
 }

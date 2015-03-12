@@ -6,10 +6,6 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 
-/**
- * @author Martin Weber
- */
-
 @Entity
 public class Company extends InfoEntity implements Serializable{
     

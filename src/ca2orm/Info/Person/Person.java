@@ -9,8 +9,6 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 
-
-
 @Entity
 public class Person extends InfoEntity implements Serializable {
     

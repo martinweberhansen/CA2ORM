@@ -10,12 +10,6 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
-
-/**
- *
- * @author Martin Weber
- */
-
 @Entity
 public class Address implements Serializable {
     
@@ -25,40 +19,35 @@ public class Address implements Serializable {
 //    private Integer Id;
     @Column(name = "street")
     private String Street;
-    @Column(name = "description")
-    private String description;
+    @Column(name = "additionalinfo")
+    private String additionalinfo;
     
-    
-    @ManyToOne              //igen uni eller bi, her sat til bi..
+    @ManyToOne
     private CityInfo cityInfo;
     
     @OneToMany(mappedBy = "address")
     List<InfoEntity> infoEntityList = new ArrayList<>();
     
-    
-
-    
     public Address(){}
     
     public Address(String Street, String description) {
         this.Street = Street;
-        this.description = description;
+        this.additionalinfo = description;
     }
-
+    
     public String getStreet() {
         return Street;
     }
-
+    
     public void setStreet(String Street) {
         this.Street = Street;
     }
-
+    
     public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
+        return additionalinfo;
     }
     
+    public void setDescription(String description) {
+        this.additionalinfo = description;
+    }
 }
